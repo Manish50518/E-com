@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import OrderSummary from "./orderSUmmary";
+import OrderSummary from "./OrderSummary";
 
 function GoToCheckout() {
   const cartdata = useLoaderData();
