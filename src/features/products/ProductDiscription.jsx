@@ -1,17 +1,16 @@
-import { useSelector } from "react-redux";
-import { getProductDetials } from "./ProductSlice";
 import { addToCart } from "./AddToCart";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 function ProductDiscription() {
   const [addTOCart, setAddToCart] = useState(false);
   const navigate = useNavigate();
-  const product = useSelector(getProductDetials);
+  const location = useLocation();
+  const { product } = location.state || {};
   const { id, image, brand, description, price, category, detailing } = product;
 
-  console.log(id);
+  // console.log(id);
 
   function handleAddCart() {
     addToCart({ id, price });

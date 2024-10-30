@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { productDetails } from "./ProductSlice";
+// import { productDetails } from "./ProductSlice";
 import { addToCart } from "./AddToCart";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import ProductDiscription from "./ProductDiscription";
 
 function ProductItem({ product }) {
   const { id, image, description, price, isSold, brand, category, detailing } =
     product;
   // console.log(id);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [addTOCart, setAddToCart] = useState(false);
@@ -30,19 +30,20 @@ function ProductItem({ product }) {
   }
 
   function handleBuyNow() {
-    const productOverView = {
-      id,
-      image,
-      brand,
-      description,
-      quantity: 1,
-      price,
-      totalPrice: price * 1,
-      category,
-      detailing,
-    };
-    dispatch(productDetails(productOverView));
-    navigate("/productDiscription");
+    // const productOverView = {
+    //   id,
+    //   image,
+    //   brand,
+    //   description,
+    //   quantity: 1,
+    //   price,
+    //   totalPrice: price * 1,
+    //   category,
+    //   detailing,
+    // };
+    // dispatch(productDetails(productOverView));
+
+    navigate("/productDiscription", { state: { product } });
   }
 
   return (
