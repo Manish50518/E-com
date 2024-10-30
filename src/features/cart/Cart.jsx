@@ -1,6 +1,7 @@
 import CartItem from "./CartItem";
 import { getCartItems } from "../../services/apiProducts";
 import { useLoaderData, useNavigate } from "react-router-dom";
+
 import OrderSummary from "../order/OrderSummary";
 
 function Cart() {
