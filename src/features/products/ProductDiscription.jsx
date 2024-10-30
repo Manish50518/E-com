@@ -19,17 +19,11 @@ function ProductDiscription() {
     toast.success("1 item added to the cart!", {
       autoClose: 3000,
     });
-    // navigate("/products");
   }
 
   function handleGoToCart() {
     navigate("/cart");
   }
-  // async function cartData() {
-  //   const data = await getCartItems();
-  //   console.log(data);
-  //   return data;
-  // }
 
   return (
     <div className="main-productDetail-div">
