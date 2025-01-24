@@ -10,22 +10,19 @@ function UpdateItem({ cartItemID, cartItemQuantity, price }) {
 
   async function handleDecreaseItem() {
     if (cartItemQuantity === 1) {
-      const response = await supabase
+      await supabase.from("cart_items").delete().eq("id", cartItemID);
+    } else {
+      const { data, error } = await supabase
         .from("cart_items")
-        .delete()
-        .eq("id", cartItemID);
+        .update({
+          quantity: (cartItemQuantity -= 1),
+          total_price: cartItemQuantity * price,
+        })
+        .eq("id", cartItemID)
+        .select();
+      console.log(cartItemQuantity);
+      console.log(cartItemQuantity * price);
     }
-    const { data, error } = await supabase
-
-      .from("cart_items")
-      .update({
-        quantity: (cartItemQuantity -= 1),
-        total_price: cartItemQuantity * price,
-      })
-      .eq("id", cartItemID)
-      .select();
-    console.log(cartItemQuantity);
-    console.log(cartItemQuantity * price);
     navigate("/cart");
   }
 
@@ -44,12 +41,22 @@ function UpdateItem({ cartItemID, cartItemQuantity, price }) {
   }
 
   return (
-    <div>
-      <button onClick={handleDecreaseItem} className="in_dic_button">
+    <div className="flex items-center space-x-4">
+      <button
+        onClick={handleDecreaseItem}
+        className="px-3   bg-blue-300 text-gray-700 rounded-md text-2xl font-bold hover:bg-blue-400 transition-colors duration-200"
+      >
         -
       </button>
-      <span>{cartItemQuantity}</span>
-      <button onClick={handleIncreasItem} className="in_dic_button">
+
+      <span className="text-lg font-medium text-gray-800">
+        {cartItemQuantity}
+      </span>
+
+      <button
+        onClick={handleIncreasItem}
+        className="px-3  bg-blue-300 text-gray-700 rounded-md text-2xl font-bold hover:bg-blue-400 transition-colors duration-200"
+      >
         +
       </button>
     </div>

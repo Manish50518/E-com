@@ -1,11 +1,11 @@
-#root {
+/* #root {
   text-align: center;
-  /* font-family: "Handjet", sans-serif; */
+   font-family: "Handjet", sans-serif; 
   font-family: SUSE;
-  /* background-color: #dbe4ff; */
+   background-color: #dbe4ff; 
   border-radius: 30px;
-  /* width: 500px; */
-  /* margin: 0px; */
+   width: 500px; 
+   margin: 0px; 
 }
 body {
   margin: 0px;
@@ -619,4 +619,4 @@ body {
 .cart-quntity {
   font-size: 25px;
   color: orange;
-}
+} 

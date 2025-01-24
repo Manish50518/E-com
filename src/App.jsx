@@ -1,8 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
-import Home from "./ui/Home";
-import About from "./ui/About";
-import Contact from "./ui/Contact";
+import "./index.css";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 import Cart from "./features/cart/Cart";
@@ -10,14 +9,16 @@ import Product, { loader as productLoader } from "./features/products/Product";
 import { loader as cartLoader } from "./features/cart/Cart";
 import ProductDiscription from "./features/products/ProductDiscription";
 import GoToCheckout from "./features/order/GoToCheckout";
-import Login from "./ui/Login";
-import Register from "./ui/Register";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Register/Register";
+import Contact from "./Pages/Contact";
+import Footer from "./Components/Footer/Footer";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     errorElement: <Error />,
- 
+
     children: [
       {
         path: "/",
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/footer",
+        element: <Footer />,
       },
       {
         path: "/cart",

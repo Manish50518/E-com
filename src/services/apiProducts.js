@@ -22,27 +22,3 @@ export async function getCartItems() {
 
   return data;
 }
-// export async function getCartData() {
-//   const { data, error } = await supabase.from("cartItems").select("*");
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Cart data cannot be find");
-//   }
-//   return data;
-// }
-
-// export const insertCartDataToSupabase = async (cart) => {
-//   try {
-//     const { data, error } = await supabase
-//       .from("cartItem") // Replace with your actual table name in Supabase
-//       .insert(cart); // Insert cart items
-
-//     if (error) {
-//       console.error("Error inserting cart data:", error);
-//     } else {
-//       console.log("Cart data inserted successfully:", data);
-//     }
-//   } catch (err) {
-//     console.error("Error inserting cart data:", err.message);
-//   }
-// };

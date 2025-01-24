@@ -1,16 +1,13 @@
-import Footer from "./Footer";
 import Product from "../features/products/Product";
 
 function Home() {
   return (
     <div>
-      Hi dude this is home
       <div>
         {" "}
-        <img src="blue_img.webp" className="image-home" />
+        <img src="blue_img.webp" className="mt-2 " />
       </div>
       <Product />
-      <Footer />
     </div>
   );
 }

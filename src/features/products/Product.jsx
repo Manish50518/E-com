@@ -6,39 +6,41 @@ import { ToastContainer } from "react-toastify";
 
 function Product() {
   const products = useLoaderData();
-  // console.log(products);
   const [updatedProducts, setUpdatedProduct] = useState(products);
-  // console.log(updatedProducts);
 
   const filterProduct = (cat) => {
     setUpdatedProduct(products);
     const updatedProduct = products.filter((item) => item.category === cat);
-    // console.log(updatedProduct);
     setUpdatedProduct(updatedProduct);
   };
+
   return (
-    <div className="product_div">
-      <header className="page_header">New Arrivals 😍</header>
-      <hr className="page_hr" />
-      <button
-        onClick={() => setUpdatedProduct(products)}
-        className="category_product"
-      >
-        All
-      </button>
-      <button
-        onClick={() => filterProduct("Men's")}
-        className="category_product"
-      >
-        Men's
-      </button>
-      <button
-        onClick={() => filterProduct("Women's")}
-        className="category_product"
-      >
-        Women's
-      </button>
-      <ul className="product_list_ul">
+    <div className="container mx-auto p-4">
+      <header className="bg-fuchsia-600 text-white text-3xl font-semibold py-4 text-center rounded-md mb-6">
+        New Arrivals 😍
+      </header>
+      <hr className="border-t-2 border-gray-300 mb-6" />
+      <div className="flex justify-center gap-6 mb-6">
+        <button
+          onClick={() => setUpdatedProduct(products)}
+          className="px-4 py-2 bg-gray-200 text-sm text-black rounded-md hover:bg-gray-300 transition duration-300"
+        >
+          All
+        </button>
+        <button
+          onClick={() => filterProduct("Men's")}
+          className="px-4 py-2 bg-gray-200 text-sm text-black rounded-md hover:bg-gray-300 transition duration-300"
+        >
+          Men's
+        </button>
+        <button
+          onClick={() => filterProduct("Women's")}
+          className="px-4 py-2 bg-gray-200 text-sm text-black rounded-md hover:bg-gray-300 transition duration-300"
+        >
+          Women's
+        </button>
+      </div>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {updatedProducts.map((product) => (
           <ProductItem product={product} key={product.id} />
         ))}
